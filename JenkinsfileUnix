@@ -6,7 +6,7 @@ pipeline {
              echo "this is build"
                 //withMaven(maven : 'apache-maven-3.6.3'){
                        // sh "mvn clean compile"
-                }
+                //}
             }
         }
         stage('Test'){
@@ -14,7 +14,7 @@ pipeline {
                 echo "this is test"
                // withMaven(maven : 'apache-maven-3.6.3'){
                //         sh "mvn test"
-                }
+               // }
 
             }
         }
@@ -23,7 +23,7 @@ pipeline {
                 echo "this is deploy"
                //withMaven(maven : 'apache-maven-3.6.3'){
                //         sh "mvn deploy"
-                }
+                //}
 
             }
         }
