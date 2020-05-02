@@ -3,23 +3,23 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                def mvnhome = tool name: 'maven', type: 'maven'{
-                        sh "${mvnhome}/bin/mvn clean compile"
+                withMaven(maven : 'apache-maven-3.6.3'){
+                        sh "mvn clean compile"
                 }
             }
         }
-        stage('Test') {
-            steps{
-                def mvnhome = tool name: 'maven', type: 'maven'{
-                        sh "${mvnhome}/bin/mvn test"
+        stage('Test'){
+            steps {
+                withMaven(maven : 'apache-maven-3.6.3'){
+                        sh "mvn test"
                 }
 
             }
         }
         stage('Deploy') {
             steps {
-                def mvnhome = tool name: 'maven', type: 'maven'{
-                        sh "${mvnhome}/bin/mvn clean deploy"
+               withMaven(maven : 'apache-maven-3.6.3'){
+                        sh "mvn deploy"
                 }
 
             }
